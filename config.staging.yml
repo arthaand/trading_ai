@@ -1,0 +1,12 @@
+host: 34.101.201.78
+port: 3027
+version: 1.0.0
+env: staging
+kafka:
+  host: 34.101.175.164:7097,34.101.175.164:7098,34.101.175.164:7099
+postgres:
+  host: 34.101.201.78
+  port: 5432
+  user: ottofinusr
+  password: KmbDb@2019
+  name: pos_services

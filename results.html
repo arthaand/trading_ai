@@ -1,0 +1,140 @@
+Results:
+
+Golang errors in file: [/Users/arthaandriyanto/go/src/ottopoint-trading-ai/infrastructure/kafka.go]:
+
+  > [line 139 : column 42] - too few arguments in call to registerTopicQrString
+
+  > [line 148 : column 67] - expected type, found '&'
+
+  > [line 148 : column 68] - missing ',' in parameter list
+
+  > [line 148 : column 74] - expected 'IDENT', found '.'
+
+  > [line 148 : column 75] - undeclared name: TopicDetail
+
+  > [line 157 : column 1] - missing return
+
+  > [line 167 : column 9] - no new variables on left side of :=
+
+
+Golang errors in file: [/Users/arthaandriyanto/go/src/ottopoint-trading-ai/main.go]:
+
+  > [line 63 : column 43] - NewEarningPublishHandler not declared by package earning
+
+
+Golang errors in file: [/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/earning/earning_publish.go]:
+
+  > [line 6 : column 2] - could not import andromeda.ottopay.id/ottopoint/ottopoint-shared/entity (invalid package name: "")
+
+
+Golang errors in file: [/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/earning/earning_status_upd.go]:
+
+  > [line 17 : column 40] - EarnPubRes not declared by package model
+
+  > [line 24 : column 71] - EarnPubRes not declared by package model
+
+
+Golang errors in file: [interfaces/kafka/earning]:
+
+  > [line 0 : column 0] - importing dir "interfaces/kafka/earning": found packages earning (earning_handler.go) and http (earning_publish_handler.go) in interfaces/kafka/earning
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/qrstring/qrstring.go:71] - G601 (CWE-118): Implicit memory aliasing in for loop. (Confidence: MEDIUM, Severity: MEDIUM)
+    70: 		v.CreatedBy = "System"
+  > 71: 		if a.trxDetail.SaveTx(tx, &v) != nil {
+    72: 			tx.Rollback()
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/qrstring/qrstring.go:80] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    79: 	earning := new(entity.TEarning)
+  > 80: 	copier.Copy(&earning, req)
+    81: 	earning.TTransactionId = transaction.Id
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/qrstring/qrstring.go:64] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    63: 	trxDt := make([]entity.TTransactionDt, 0)
+  > 64: 	copier.Copy(&detail, req.DetailProduct)
+    65: 	for _, v := range *detail {
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/qrstring/qrstring.go:38] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    37: 	transaction := new(entity.TTransaction)
+  > 38: 	copier.Copy(&transaction, req)
+    39: 	trxDate, _ := time.Parse(constant.DATE_TIME_FORMAT, req.TransactionTime)
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/earning/earning_status_upd.go:27] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    26: 	earnStatus := entity.TEarning{}
+  > 27: 	copier.Copy(earnStatus, consumeRes)
+    28: 
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/earning/earning_publish.go:54] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    53: 	copier.Copy(&res, earning)
+  > 54: 	copier.Copy(&res, trx)
+    55: 
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/usecase/earning/earning_publish.go:53] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    52: 	// fill res body
+  > 53: 	copier.Copy(&res, earning)
+    54: 	copier.Copy(&res, trx)
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/main.go:122] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    121: 	// run server
+  > 122: 	app.Listen(":" + shared.Config.Port)
+    123: }
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/interfaces/http/qrstring_handler.go:41] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    40: 	var req model.ReqQrString
+  > 41: 	c.BodyParser(&req)
+    42: 	if err := common.Validate(req); err != nil {
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/interfaces/http/checkstatus_handler.go:33] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    32: 	var req model.ReqCheckStatus
+  > 33: 	c.BodyParser(&req)
+    34: 	if err := common.Validate(req); err != nil {
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/infrastructure/kafka.go:143] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    142: 
+  > 143: 	initClient(brokers, cfg)
+    144: 
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/infrastructure/kafka.go:141] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    140: 
+  > 141: 	admin.Close()
+    142: 
+
+
+
+[/Users/arthaandriyanto/go/src/ottopoint-trading-ai/infrastructure/kafka.go:139] - G104 (CWE-703): Errors unhandled. (Confidence: HIGH, Severity: LOW)
+    138: 	}
+  > 139: 	registerTopicQrString(admin, qrCodeTopic)
+    140: 
+
+
+
+Summary:
+  Gosec  : dev
+  Files  : 23
+  Lines  : 1375
+  Nosec  : 0
+  Issues : 13
+

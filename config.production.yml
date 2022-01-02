@@ -1,0 +1,12 @@
+host: 34.101.201.78
+port: 3027
+version: 1.0.0
+env: production
+kafka:
+  host:
+postgres:
+  host: 
+  port: 
+  user: 
+  password: 
+  name: pos_services

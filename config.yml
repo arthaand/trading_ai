@@ -1,0 +1,11 @@
+version: 1.0.0
+env: dev
+port: 8082
+kafka: 
+  host: 13.229.100.66:7097,13.229.100.66:7098,13.229.100.66:7099
+postgres:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: password
+  name: trading_ai
